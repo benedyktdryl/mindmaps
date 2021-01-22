@@ -1,6 +1,8 @@
 # pull official base image
 FROM node:14.15.4
 
+ENV PORT=3001
+
 # set working directory
 WORKDIR /app
 
@@ -15,6 +17,7 @@ RUN yarn global add react-scripts@4.0.1 --silent
 
 # add app
 COPY . ./
+#start app
+CMD [ "yarn", "start" ]
 
-# start app
-CMD ["yarn", "start"]
+EXPOSE $PORT
