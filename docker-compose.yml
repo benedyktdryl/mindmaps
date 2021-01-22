@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  mindmaps-fe:
+    container_name: mindmaps-fe
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+    ports:
+      - 3001:3000
+    environment:
+      - CHOKIDAR_USEPOLLING=true
