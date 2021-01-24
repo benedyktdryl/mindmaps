@@ -1,12 +1,7 @@
 import { useWorkspace } from "./useWorkspace.hook";
-import { Workspace, WorkspaceProps } from "./workspace.ui.component";
+import { Workspace } from "./workspace.ui.component";
+export function WorkspacePage(props: {}) {
+  const { mermaidElement } = useWorkspace();
 
-function withWorkspace(Component: React.FC<WorkspaceProps>) {
-  return function (props: {}) {
-    const { mermaidElement } = useWorkspace();
-
-    return <Component {...props} mermaidElement={mermaidElement} />;
-  };
+  return <Workspace {...props} mermaidElement={mermaidElement} />;
 }
-
-export const WorkspacePage = withWorkspace(Workspace);
