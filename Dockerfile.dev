@@ -10,10 +10,9 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 # install app dependencies
-COPY package.json ./
-COPY yarn.lock ./
+COPY package.json yarn.lock ./
 RUN yarn install
-RUN yarn global add react-scripts@4.0.1 --silent
+RUN yarn add react-scripts@4.0.1 --silent
 
 # add app
 COPY . ./
