@@ -1,0 +1,22 @@
+# pull official base image
+FROM node:14.15.4
+
+ENV PORT=3001
+
+# set working directory
+WORKDIR /app
+
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
+# install app dependencies
+COPY package.json yarn.lock ./
+RUN yarn install
+RUN yarn add react-scripts@4.0.1 --silent
+
+# add app
+COPY . ./
+#start app
+CMD [ "yarn", "start" ]
+
+EXPOSE $PORT

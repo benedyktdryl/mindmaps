@@ -1,18 +1,10 @@
-import {
-  observable,
-  action,
-  computed,
-  IObservableArray,
-  IObservableValue,
-} from 'mobx';
+import { observable, action, computed, IObservableArray, IObservableValue } from "mobx";
 
-import { mappers } from '../mappers';
-import { DIAGRAM_TYPES } from '../utils/consts';
+import { mappers } from "../mappers";
+import { DIAGRAM_TYPES } from "../fixtures/consts";
 
 export class WorkspaceStore {
-  type: IObservableValue<DIAGRAM_TYPES> = observable.box(
-    DIAGRAM_TYPES.FLOWCHART,
-  );
+  type: IObservableValue<DIAGRAM_TYPES> = observable.box(DIAGRAM_TYPES.FLOWCHART);
 
   items: IObservableArray<Item> = observable([]);
 
