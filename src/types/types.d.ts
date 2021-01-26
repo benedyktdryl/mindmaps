@@ -4,7 +4,9 @@ declare interface Item {
 
 declare interface JsonSchema {
   nodes: Array<any>,
-  graphDirection: string
+  graphDirection: string,
+  linkType: string,
+  shapeType: string
 }
 
 interface Converter {

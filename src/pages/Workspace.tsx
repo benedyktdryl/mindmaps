@@ -13,7 +13,7 @@ import AddIcon from '@material-ui/icons/Add';
 import { WorkspaceAddItem } from '../components/WorkspaceAddItem';
 import { useStores } from '../hooks/useStores';
 import { DIAGRAM_TYPES } from '../utils/consts';
-import { JsonToMermaid } from '../services/converters/JsonToMermaid';
+import { JsonToMermaid } from '../utils/converters/JsonToMermaid/JsonToMermaid';
 
 interface Props {}
 
@@ -36,7 +36,9 @@ export const Workspace: React.FC<Props> = (props) => {
 
   const mermaidElement = useRef(null);
   let data = {
-    graphDirection: 'LR',
+    graphDirection: 'TB',
+    linkType: 'openLink',
+    shapeType: 'stadium',
     nodes: [
       { key: 0, text: "Root" },
       { key: 1, parent: 0, text: "child1" },
