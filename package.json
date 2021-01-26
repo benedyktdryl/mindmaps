@@ -36,7 +36,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!mermaid)/\"",
+    "test:coverage": "react-scripts test --transformIgnorePatterns \"node_modules/(?!mermaid)/\" --watchAll=false --coverage",
     "eject": "react-scripts eject",
     "lint": "./node_modules/.bin/eslint --ext js,ts,tsx src"
   },
