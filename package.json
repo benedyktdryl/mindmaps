@@ -41,7 +41,8 @@
     "test:coverage": "react-scripts test --transformIgnorePatterns \"node_modules/(?!mermaid)/\" --watchAll=false --coverage",
     "eject": "react-scripts eject",
     "lint": "./node_modules/.bin/eslint --ext js,ts,tsx src",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "husky": {
     "hooks": {
