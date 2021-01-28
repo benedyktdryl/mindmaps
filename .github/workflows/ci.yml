@@ -7,7 +7,7 @@ on:
     branches:
       - master
 jobs:
-  build-test-lint-typecheck-e2e:
+  run-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
