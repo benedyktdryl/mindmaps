@@ -31,11 +31,6 @@ export const WorkspaceAddItem = () => {
    */
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [hidden, setHidden] = React.useState(false);
-
-  const handleVisibility = () => {
-    setHidden((prevHidden) => !prevHidden);
-  };
 
   const handleOpen = () => {
     setOpen(true);
@@ -49,7 +44,7 @@ export const WorkspaceAddItem = () => {
     <SpeedDial
       ariaLabel="Add item"
       className={classes.speedDial}
-      hidden={hidden}
+      hidden={open}
       icon={<SpeedDialIcon />}
       onClose={handleClose}
       onOpen={handleOpen}

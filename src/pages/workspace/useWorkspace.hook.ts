@@ -49,7 +49,7 @@ export function useWorkspace() {
     ],
   };
 
-  const [textContent, setTextContent] = useState(jsonToMermaid(data));
+  const [textContent] = useState(jsonToMermaid(data));
 
   const insertSVG = useCallback((svgCode, bindFunctions) => {
     const targetElement = mermaidElement.current;
@@ -67,7 +67,7 @@ export function useWorkspace() {
       securityLevel: "loose",
     });
 
-    const graph = mermaid.mermaidAPI.render("graph", textContent, insertSVG);
+    mermaid.mermaidAPI.render("graph", textContent, insertSVG);
   }, [insertSVG, textContent]);
 
   useEffect(() => {
