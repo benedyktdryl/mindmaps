@@ -10,7 +10,6 @@ declare interface JsonSchema {
 }
 
 interface Converter {
-  data: JsonSchema,
   convert(): string
 }
 

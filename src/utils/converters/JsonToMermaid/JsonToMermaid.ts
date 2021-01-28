@@ -2,18 +2,16 @@ import { NODE_CONNECTIONS } from "./nodeConnections";
 import { NODE_SHAPES } from "./nodeShapes";
 
 export class JsonToMermaid implements Converter {
-  data:      JsonSchema
   nodes:     Array<GraphNode | any>;
   direction: string;
   linkType:  string;
   shapeType: string;
 
-  constructor(data: JsonSchema) {
-    this.data      = data
-    this.nodes     = data['nodes'];
-    this.direction = data['graphDirection'];
-    this.linkType  = data['linkType'];
-    this.shapeType = data['shapeType'];
+  constructor({ nodes, graphDirection, linkType, shapeType }: JsonSchema) {
+    this.nodes     = nodes;
+    this.direction = graphDirection;
+    this.linkType  = linkType;
+    this.shapeType = shapeType;
   }
 
   convert(): string {

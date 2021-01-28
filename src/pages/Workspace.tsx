@@ -36,9 +36,9 @@ export const Workspace: React.FC<Props> = (props) => {
 
   const mermaidElement = useRef(null);
   let data = {
-    graphDirection: 'TB',
+    graphDirection: 'LR',
     linkType: 'openLink',
-    shapeType: 'stadium',
+    shapeType: 'round',
     nodes: [
       { key: 0, text: "Root" },
       { key: 1, parent: 0, text: "child1" },
@@ -57,6 +57,7 @@ export const Workspace: React.FC<Props> = (props) => {
       { key: 14, parent: 11, text: "child4-1-3" },
       { key: 15, parent: 11, text: "child4-1-4" },
       { key: 16, parent: 12, text: "child4-1-1-2" },
+
     ]
   }
 
