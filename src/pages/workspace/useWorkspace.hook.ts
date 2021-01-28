@@ -23,7 +23,7 @@ export function useWorkspace() {
   }).genericHandler = genericNodeHandler;
 
   const mermaidElement = useRef<HTMLDivElement>(null);
-  const [textContent, setTextContent] = useState(`graph TB\na-->b\nclick a genericHandler\nclick b genericHandler`);
+  const [textContent] = useState(`graph TB\na-->b\nclick a genericHandler\nclick b genericHandler`);
 
   const insertSVG = useCallback((svgCode, bindFunctions) => {
     const targetElement = mermaidElement.current;
@@ -41,7 +41,7 @@ export function useWorkspace() {
       securityLevel: "loose",
     });
 
-    const graph = mermaid.mermaidAPI.render("graph", textContent, insertSVG);
+    mermaid.mermaidAPI.render("graph", textContent, insertSVG);
   }, [insertSVG, textContent]);
 
   useEffect(() => {
