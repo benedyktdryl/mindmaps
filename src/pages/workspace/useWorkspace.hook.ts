@@ -24,7 +24,7 @@ export function useWorkspace() {
   }).genericHandler = genericNodeHandler;
 
   const mermaidElement = useRef<HTMLDivElement>(null);
-  let data = {
+  const data = {
     graphDirection: "LR",
     linkType: "openLink",
     shapeType: "round",

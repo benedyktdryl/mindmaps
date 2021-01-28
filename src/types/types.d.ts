@@ -3,7 +3,7 @@ declare interface Item {
 }
 
 declare interface MermaidGraphJsonSchema {
-  nodes: Array<any>;
+  nodes: Array<GraphNode>;
   graphDirection: string;
   linkType: string;
   shapeType: string;

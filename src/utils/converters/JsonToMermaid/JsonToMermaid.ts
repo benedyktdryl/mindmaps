@@ -9,17 +9,15 @@ function buildMermaidNodes(nodes: Array<GraphNode>, linkType: string, shapeType:
   if (nodes.length === 1) return [buildMermaidNode(nodes[0], shapeType)];
 
   let rootNode = nodes.find(isRootNode);
-  let mermaidNodes = nodes
+  return nodes
     .filter((node) => !isRootNode(node))
     .map((node) => {
-      let parent = nodes.find((elem) => node.parent && elem.key === node.parent) || rootNode;
-      let parentNode = buildMermaidNode(parent!, shapeType);
-      let childNode = buildMermaidNode(node, shapeType);
+      const parent = nodes.find((elem) => node.parent && elem.key === node.parent) || rootNode;
+      const parentNode = buildMermaidNode(parent!, shapeType);
+      const childNode = buildMermaidNode(node, shapeType);
 
       return NODE_CONNECTIONS[linkType](parentNode, childNode);
     });
-
-  return mermaidNodes;
 }
 
 function buildMermaidNode(node: GraphNode, shapeType: string): string {
