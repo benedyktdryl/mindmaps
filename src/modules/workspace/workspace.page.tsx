@@ -1,4 +1,6 @@
-import { useWorkspace, Workspace } from "../../modules/workspace";
+import { useWorkspace } from "./useWorkspace.hook";
+import { Workspace } from "./workspace.ui.component";
+
 export function WorkspacePage(props: {}) {
   const { mermaidElement } = useWorkspace();
 

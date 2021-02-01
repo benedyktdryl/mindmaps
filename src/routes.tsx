@@ -1,7 +1,7 @@
 import * as React from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
-import { WorkspacePage } from "./workspace/workspace.page";
+import { WorkspacePage } from "./modules/workspace/workspace.page";
 
 export function Routes() {
   return (
