@@ -5,19 +5,41 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <a
-        href="/workspace/flowchart"
+      <div
+        class="MuiContainer-root MuiContainer-maxWidthLg"
       >
-        Go to workspace
-      </a>
+        <div
+          style="background-color: rgb(207, 232, 252); height: 100vh;"
+        />
+        <div
+          class="MuiDrawer-root MuiDrawer-docked"
+        >
+          <div
+            class="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+          >
+            foo
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <a
-      href="/workspace/flowchart"
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg"
     >
-      Go to workspace
-    </a>
+      <div
+        style="background-color: rgb(207, 232, 252); height: 100vh;"
+      />
+      <div
+        class="MuiDrawer-root MuiDrawer-docked"
+      >
+        <div
+          class="MuiPaper-root MuiDrawer-paper MuiDrawer-paperAnchorRight MuiDrawer-paperAnchorDockedRight MuiPaper-elevation0"
+        >
+          foo
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
