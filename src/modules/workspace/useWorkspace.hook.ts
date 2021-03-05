@@ -1,5 +1,5 @@
 import mermaid from "mermaid";
-import { useEffect, useCallback, useRef, useState } from "react";
+import { useEffect, useCallback, useRef /* , useState */ } from "react";
 import { useParams } from "react-router";
 
 import { DIAGRAM_TYPES } from "../../fixtures/consts";
@@ -23,26 +23,31 @@ export function useWorkspace() {
   }).genericHandler = genericNodeHandler;
 
   const mermaidElement = useRef<HTMLDivElement>(null);
-  const [textContent, setTextContent] = useState(`graph TB\na-->b\nclick a genericHandler\nclick b genericHandler`);
+  // const [textContent, setTextContent] = useState(`graph TB\na-->b\nclick a genericHandler\nclick b genericHandler`);
 
-  const insertSVG = useCallback((svgCode, bindFunctions) => {
-    const targetElement = mermaidElement.current;
+  // const insertSVG = useCallback((svgCode, bindFunctions) => {
+  //   const targetElement = mermaidElement.current;
 
-    if (targetElement) {
-      targetElement.innerHTML = svgCode;
+  //   if (targetElement) {
+  //     targetElement.innerHTML = svgCode;
 
-      bindFunctions(targetElement);
-    }
-  }, []);
+  //     bindFunctions(targetElement);
+  //   }
+  // }, []);
 
-  const initializeMermaid = useCallback(() => {
-    mermaid.mermaidAPI.initialize({
-      startOnLoad: false,
-      securityLevel: "loose",
-    });
+  const initializeMermaid = useCallback(
+    () => {
+      mermaid.mermaidAPI.initialize({
+        startOnLoad: false,
+        securityLevel: "loose",
+      });
 
-    const graph = mermaid.mermaidAPI.render("graph", textContent, insertSVG);
-  }, [insertSVG, textContent]);
+      // const graph = mermaid.mermaidAPI.render("graph", textContent, insertSVG);
+    },
+    [
+      /* insertSVG, textContent */
+    ]
+  );
 
   useEffect(() => {
     initializeMermaid();

@@ -31,11 +31,11 @@ export const WorkspaceAddItem = () => {
    */
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [hidden, setHidden] = React.useState(false);
+  const [hidden /* , setHidden */] = React.useState(false);
 
-  const handleVisibility = () => {
-    setHidden((prevHidden) => !prevHidden);
-  };
+  // const handleVisibility = () => {
+  //   setHidden((prevHidden) => !prevHidden);
+  // };
 
   const handleOpen = () => {
     setOpen(true);
