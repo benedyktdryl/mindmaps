@@ -3,18 +3,16 @@ import React from "react";
 import Drawer from "@material-ui/core/Drawer";
 import Container from "@material-ui/core/Container";
 
-import { WorkspaceAddItem } from "./components/workspaceAddItem.component";
+import { useWorkspace } from "./use-workspace.hook";
+import { WorkspaceToolbar } from "./workspace-toolbar.component";
 
-export interface WorkspaceProps {
-  mermaidElement: React.RefObject<HTMLDivElement>;
-}
+export const WorkspacePage: React.FC = () => {
+  const { mermaidElement } = useWorkspace();
 
-export const Workspace: React.FC<WorkspaceProps> = (props) => {
   return (
-    <Container maxWidth="md">
-      <div style={{ backgroundColor: "#cfe8fc", height: "100vh" }} ref={props.mermaidElement} />
-      <WorkspaceAddItem />
-
+    <Container>
+      <WorkspaceToolbar />
+      <div style={{ backgroundColor: "#cfe8fc", height: "100vh" }} ref={mermaidElement} />
       <Drawer
         variant="persistent"
         anchor="right"

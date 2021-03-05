@@ -1,15 +1,12 @@
-import * as React from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { WorkspacePage } from "./modules/workspace/workspace.page";
+import { WorkspacePage } from "./modules/workspace/workspace.page.component";
 
 export function Routes() {
   return (
     <Router>
       <Switch>
-        <Route path="/workspace/:type" component={WorkspacePage} />
-        <Route path="/" component={() => <Link to="/workspace/flowchart">Go to workspace</Link>} />
-        <Route component={() => <Link to="/workspace/flowchart">Go to workspace</Link>} />
+        <Route component={WorkspacePage} />
       </Switch>
     </Router>
   );

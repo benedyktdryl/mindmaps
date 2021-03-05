@@ -1,18 +1,7 @@
 import mermaid from "mermaid";
 import { useEffect, useCallback, useRef /* , useState */ } from "react";
-import { useParams } from "react-router";
-
-import { DIAGRAM_TYPES } from "../../fixtures/consts";
-import { useStores } from "../../hooks/useStores.hook";
 
 export function useWorkspace() {
-  const { type } = useParams<{ type: DIAGRAM_TYPES }>();
-  const { workspaceStore } = useStores();
-
-  useEffect(() => {
-    workspaceStore.setType(type);
-  }, [type, workspaceStore]);
-
   const genericNodeHandler = useCallback((...args) => {
     /* tslint:disable no-console */
     console.log("generic", ...args);
