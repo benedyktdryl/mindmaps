@@ -36,14 +36,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
     "lint": "./node_modules/.bin/eslint --ext js,ts,tsx src"
   },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged && yarn lint",
-      "pre-push": "yarn test --watchAll=false"
+      "pre-push": "yarn test --watchAll=false --passWithNoTests"
     }
   },
   "eslintConfig": {
