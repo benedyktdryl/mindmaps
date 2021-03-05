@@ -29,6 +29,7 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-router": "5.1.11",
     "@types/react-router-dom": "5.1.7",
+    "cypress": "6.3.0",
     "husky": "4.3.8",
     "prettier": "2.2.1",
     "pretty-quick": "3.1.0"
@@ -36,14 +37,17 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --passWithNoTests",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!mermaid)/\"",
+    "test:coverage": "react-scripts test --transformIgnorePatterns \"node_modules/(?!mermaid)/\" --watchAll=false --coverage",
     "eject": "react-scripts eject",
-    "lint": "./node_modules/.bin/eslint --ext js,ts,tsx src"
+    "lint": "./node_modules/.bin/eslint --ext js,ts,tsx src",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged && yarn lint",
-      "pre-push": "yarn test --watchAll=false --passWithNoTests"
+      "pre-push": "yarn test --watchAll=false"
     }
   },
   "eslintConfig": {
