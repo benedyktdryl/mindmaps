@@ -1,5 +1,7 @@
 import mermaid from "mermaid";
-import { useEffect, useCallback, useRef /* , useState */ } from "react";
+import { useEffect, useCallback, useRef, useState } from "react";
+
+import { toMarkdown } from "../transform/transform";
 
 export function useWorkspace() {
   const genericNodeHandler = useCallback((...args) => {
@@ -12,31 +14,51 @@ export function useWorkspace() {
   }).genericHandler = genericNodeHandler;
 
   const mermaidElement = useRef<HTMLDivElement>(null);
-  // const [textContent, setTextContent] = useState(`graph TB\na-->b\nclick a genericHandler\nclick b genericHandler`);
+  const data = {
+    graphDirection: "LR",
+    linkType: "openLink",
+    shapeType: "round",
+    nodes: [
+      { key: 0, text: "Root" },
+      { key: 1, parent: 0, text: "child1" },
+      { key: 2, parent: 1, text: "child1-2" },
+      { key: 3, parent: 1, text: "child1-3" },
+      { key: 4, parent: 2, text: "child2-3" },
+      { key: 5, parent: 2, text: "child2-4" },
+      { key: 6, parent: 2, text: "child2-5" },
+      { key: 7, parent: 0, text: "child3-1" },
+      { key: 8, parent: 1, text: "child2-4" },
+      { key: 9, parent: 3, text: "child2-5" },
+      { key: 10, parent: 1, text: "child3-1" },
+      { key: 11, parent: 0, text: "child4-1" },
+      { key: 12, parent: 11, text: "child4-1-1" },
+      { key: 13, parent: 11, text: "child4-1-2" },
+      { key: 14, parent: 11, text: "child4-1-3" },
+      { key: 15, parent: 11, text: "child4-1-4" },
+      { key: 16, parent: 12, text: "child4-1-1-2" },
+    ],
+  };
 
-  // const insertSVG = useCallback((svgCode, bindFunctions) => {
-  //   const targetElement = mermaidElement.current;
+  const [textContent] = useState(toMarkdown(data));
 
-  //   if (targetElement) {
-  //     targetElement.innerHTML = svgCode;
+  const insertSVG = useCallback((svgCode, bindFunctions) => {
+    const targetElement = mermaidElement.current;
 
-  //     bindFunctions(targetElement);
-  //   }
-  // }, []);
+    if (targetElement) {
+      targetElement.innerHTML = svgCode;
 
-  const initializeMermaid = useCallback(
-    () => {
-      mermaid.mermaidAPI.initialize({
-        startOnLoad: false,
-        securityLevel: "loose",
-      });
+      bindFunctions(targetElement);
+    }
+  }, []);
 
-      // const graph = mermaid.mermaidAPI.render("graph", textContent, insertSVG);
-    },
-    [
-      /* insertSVG, textContent */
-    ]
-  );
+  const initializeMermaid = useCallback(() => {
+    mermaid.mermaidAPI.initialize({
+      startOnLoad: false,
+      securityLevel: "loose",
+    });
+
+    mermaid.mermaidAPI.render("graph", textContent, insertSVG);
+  }, [insertSVG, textContent]);
 
   useEffect(() => {
     initializeMermaid();
