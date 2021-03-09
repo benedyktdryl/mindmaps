@@ -1,4 +1,4 @@
-import { jsonToMermaid } from "../json-to-mermaid";
+import { toMarkdown } from "./transform";
 
 import {
   MERMAID_FLOW_CHART,
@@ -15,30 +15,30 @@ import {
 
 describe("converting JSON into mermaid markdown", () => {
   it("should return string with multiple nodes", () => {
-    expect(jsonToMermaid(JSON_WITH_ROOT_AND_THREE_CHILDREN)).toEqual(MERMAID_FLOW_CHART);
+    expect(toMarkdown(JSON_WITH_ROOT_AND_THREE_CHILDREN)).toEqual(MERMAID_FLOW_CHART);
   });
 
   describe("with only root node", () => {
     it("should return string with one node", () => {
-      expect(jsonToMermaid(JSON_WITH_SINGLE_NODE)).toEqual(MERMAID_FLOW_CHART_WITH_ONE_NODE);
+      expect(toMarkdown(JSON_WITH_SINGLE_NODE)).toEqual(MERMAID_FLOW_CHART_WITH_ONE_NODE);
     });
   });
 
   describe("Graph direction", () => {
     it("should return string with correct graph direction", () => {
-      expect(jsonToMermaid(JSON_WITH_TB_DIRECTION)).toEqual(MERMAID_FLOW_CHART_WITH_TB_DIRECTION);
+      expect(toMarkdown(JSON_WITH_TB_DIRECTION)).toEqual(MERMAID_FLOW_CHART_WITH_TB_DIRECTION);
     });
   });
 
   describe("Graph - Node shape", () => {
     it("should return string with correct node shape", () => {
-      expect(jsonToMermaid(JSON_WITH_RECTANGULAR_SHAPE)).toEqual(MERMAID_FLOW_CHART_WITH_RECTANGULAR_SHAPE);
+      expect(toMarkdown(JSON_WITH_RECTANGULAR_SHAPE)).toEqual(MERMAID_FLOW_CHART_WITH_RECTANGULAR_SHAPE);
     });
   });
 
   describe("Graph - Node connections", () => {
     it("should return string with correct node connections", () => {
-      expect(jsonToMermaid(JSON_WITH_ARROW_CONNECTIONS)).toEqual(MERMAID_FLOW_CHART_WITH_ARROW_CONNECTIONS);
+      expect(toMarkdown(JSON_WITH_ARROW_CONNECTIONS)).toEqual(MERMAID_FLOW_CHART_WITH_ARROW_CONNECTIONS);
     });
   });
 });

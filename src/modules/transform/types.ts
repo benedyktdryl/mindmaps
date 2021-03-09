@@ -1,15 +1,15 @@
-declare interface Item {
+export interface Item {
   type: string;
 }
 
-declare interface MarkdownGraphJsonSchema {
+export interface MarkdownGraphJsonSchema {
   nodes: Array<GraphNode>;
   graphDirection: string;
   linkType: string;
   shapeType: string;
 }
 
-declare interface GraphNode {
+export interface GraphNode {
   key: number;
   parent?: number;
   text: string;

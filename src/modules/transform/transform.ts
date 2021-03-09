@@ -1,5 +1,6 @@
 import { NODE_CONNECTIONS } from "./node-connections";
 import { NODE_SHAPES } from "./node-shapes";
+import { MarkdownGraphJsonSchema, GraphNode } from "./types";
 
 export function toMarkdown({ nodes, graphDirection, linkType, shapeType }: MarkdownGraphJsonSchema) {
   return [`graph ${graphDirection}`, ...buildNodes(nodes, linkType, shapeType)].join("\n");
