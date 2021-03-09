@@ -1,19 +1,9 @@
 import mermaid from "mermaid";
 import { useEffect, useCallback, useRef, useState } from "react";
-import { useParams } from "react-router";
 
-import { DIAGRAM_TYPES } from "../../fixtures/consts";
-import { useStores } from "../../hooks/useStores.hook";
-import { jsonToMermaid } from "../../utils/converters/JsonToMermaid/jsonToMermaid";
+import { toMarkdown } from "../transform/transform";
 
 export function useWorkspace() {
-  const { type } = useParams<{ type: DIAGRAM_TYPES }>();
-  const { workspaceStore } = useStores();
-
-  useEffect(() => {
-    workspaceStore.setType(type);
-  }, [type, workspaceStore]);
-
   const genericNodeHandler = useCallback((...args) => {
     /* tslint:disable no-console */
     console.log("generic", ...args);
@@ -49,7 +39,7 @@ export function useWorkspace() {
     ],
   };
 
-  const [textContent] = useState(jsonToMermaid(data));
+  const [textContent] = useState(toMarkdown(data));
 
   const insertSVG = useCallback((svgCode, bindFunctions) => {
     const targetElement = mermaidElement.current;

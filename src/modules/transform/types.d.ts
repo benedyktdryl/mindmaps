@@ -2,7 +2,7 @@ declare interface Item {
   type: string;
 }
 
-declare interface MermaidGraphJsonSchema {
+declare interface MarkdownGraphJsonSchema {
   nodes: Array<GraphNode>;
   graphDirection: string;
   linkType: string;

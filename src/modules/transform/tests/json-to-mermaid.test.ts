@@ -1,4 +1,5 @@
-import { jsonToMermaid } from "../jsonToMermaid";
+import { jsonToMermaid } from "../json-to-mermaid";
+
 import {
   MERMAID_FLOW_CHART,
   MERMAID_FLOW_CHART_WITH_ONE_NODE,
